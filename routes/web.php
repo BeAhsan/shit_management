@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
 
 use App\Livewire\Calendar;
+use App\Livewire\Map;
+
 use App\Models\Shift;
 
 Route::get('/', function () {
@@ -13,6 +15,7 @@ Route::get('/', function () {
 route::get('/calender', [CalendarController::class, 'index'])->name('get_calender');
 
 Livewire::component('calendar', Calendar::class);
+Livewire::component('map', Map::class);
 
 Route::middleware([
     'auth:sanctum',
