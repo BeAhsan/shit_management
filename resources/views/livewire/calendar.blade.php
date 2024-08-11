@@ -1,9 +1,9 @@
 
-<div>
-  <div id='calendar-container' class="flex justify-center" wire:ignore>
-    <div id='calendar' class=" bg-white calendar"></div>
-  </div>
-</div>
+<x-module-section>
+  <div id='calendar-container '  wire:ignore>
+    <div id='calendar' class=" calendar"></div>
+  </div> 
+</x-module-section>
 
 @push('scripts')
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>

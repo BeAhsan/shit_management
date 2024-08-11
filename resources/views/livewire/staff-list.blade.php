@@ -1,6 +1,6 @@
-<div>
-  
-        <form wire:submit.prevent="getUsers" class="flex gap-3 w-1/2 mb-12" method="post">
+<x-module-section>
+  <h1 class="mb-4">Staff</h1>
+        <form wire:submit.prevent="getUsers" class="flex gap-3 w-1/2 mb-6" method="post">
         @csrf 
                 <x-input id="name" class="block mt-1 w-full" placeholder="Search By Name" type="text" name="name"  wire:model="name" :value="old('name')" required autofocus autocomplete="name" />
             
@@ -40,4 +40,4 @@
     {{ $this->getUsers()->links() }}
     </div>
    
-</div>
+</x-module-section>

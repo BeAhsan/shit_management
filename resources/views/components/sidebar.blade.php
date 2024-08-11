@@ -1,4 +1,4 @@
-<div class=" w-1/6">
+<div class="w-1/6">
   
     @if(isAdmin())
     <ul>

@@ -17,10 +17,10 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div >
             @livewire('navigation-menu')
 
             <!-- Page Heading
@@ -36,7 +36,7 @@
             <!-- Page Content -->
             <main class="flex gap-2 m-5">
                  <x-sidebar />
-                 <div class="bg-white w-full p-5 rounded-md">
+                 <div>
                 {{ $slot }}
                 </div>
             </main>
