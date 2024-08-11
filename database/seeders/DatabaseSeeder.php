@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
     {
        
 
-        $this->roleData();
-        $this->createAdmin();
-        $this->createDummy();
-        User::factory(10)->withPersonalTeam()->create();
+        // $this->roleData();
+        // $this->createAdmin();
+        // $this->createDummy();
+        User::factory(100)->withPersonalTeam()->create();
         // User::factory()->withPersonalTeam()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

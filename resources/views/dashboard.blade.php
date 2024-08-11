@@ -6,11 +6,12 @@
     </x-slot>
 
     @if(isAdmin())
-    <livewire:calendar /> 
+     <!-- <livewire:calendar />  -->
+     <livewire:staff-list />
     @endif
 
     @if(!isAdmin() && isApplicant())
-    <livewire:application-form/>
+    <livewire:staff-list />
     @endif
 
     

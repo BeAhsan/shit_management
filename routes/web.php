@@ -6,6 +6,7 @@ use App\Http\Controllers\CalendarController;
 use App\Livewire\Calendar;
 use App\Livewire\Map;
 use App\Livewire\CreateStaff;
+use App\Livewire\StaffList;
 use App\Models\Shift;
 use App\Models\User;
 
@@ -17,6 +18,7 @@ Route::get('/', function () {
 Livewire::component('calendar', Calendar::class);
 Livewire::component('map', Map::class);
 Livewire::component('create-staff', CreateStaff::class);
+Livewire::component('staff-list', StaffList::class);
 
 Route::middleware([
     'auth:sanctum',
