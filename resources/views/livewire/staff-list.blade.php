@@ -27,9 +27,14 @@
         </thead>
         <tbody>
         @foreach(($this->getUsers()) as $user)
-         <tr class="border-b-2 h-12">
+         <tr class="border-b-2">
             <td>{{$user->staff_number == null ? '-': $user->staff_number}}</td> 
-            <td>{{$user->name}}</td> 
+            <td class="flex align-middle items-center">
+                <div class="shrink-0 m-3">
+                        <img class="h-10 w-10 rounded-full object-cover" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" />
+                    </div>
+                {{$user->name}}
+            </td> 
             <td>{{$user->email}} </td>
             <td>{{$user->active ? 'Active' : 'Pending'}} </td>    
         </tr> 
