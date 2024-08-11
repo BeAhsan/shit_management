@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->integer('staff_number')->nullable(); 
             $table->string('name');
             $table->foreignId('role_id')->nullable();
             $table->string('email')->unique();
@@ -20,7 +21,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('profile_photo_path', 2048)->nullable(); 
+             $table->boolean('displayed')->default(0);
             $table->timestamps();
         });
 

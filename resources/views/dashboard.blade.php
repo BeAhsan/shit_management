@@ -8,4 +8,6 @@
     @if(isAdmin())
     <livewire:calendar /> 
     @endif
+
+    
 </x-app-layout>
