@@ -1,4 +1,4 @@
-<div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex w-1/3">
+<div class=" w-1/6">
   
     @if(isAdmin())
     <ul>

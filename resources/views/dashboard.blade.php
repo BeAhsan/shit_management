@@ -9,5 +9,9 @@
     <livewire:calendar /> 
     @endif
 
+    @if(!isAdmin() && isApplicant())
+    <livewire:application-form/>
+    @endif
+
     
 </x-app-layout>

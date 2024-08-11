@@ -34,9 +34,11 @@
 
             
             <!-- Page Content -->
-            <main class="flex">
+            <main class="flex gap-2 m-5">
                  <x-sidebar />
+                 <div class="bg-white w-full p-5 rounded-md">
                 {{ $slot }}
+                </div>
             </main>
         </div>
 
