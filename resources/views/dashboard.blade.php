@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+    @if(isAdmin())
     <livewire:calendar /> 
-    
+    @endif
 </x-app-layout>

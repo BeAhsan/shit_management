@@ -12,7 +12,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/calender', [CalendarController::class, 'index'])->name('get_calender');
 
 Livewire::component('calendar', Calendar::class);
 Livewire::component('map', Map::class);
@@ -21,8 +20,11 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
+])->group(function () { 
+    
+    route::get('/calender', [CalendarController::class, 'index'])->name('get_calender');
+    Route::get('/dashboard', function () { 
         return view('dashboard');
     })->name('dashboard');
+
 });

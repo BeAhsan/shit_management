@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request; 
+use Master;
 
 class CalendarController extends Controller
 {
@@ -10,8 +11,7 @@ class CalendarController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    { 
-
+    {   
          return view('shifts/calender'); 
     }
 

@@ -8,7 +8,10 @@
                     <a href="{{ route('dashboard') }}">
                         <x-application-mark class="block h-9 w-auto" />
                     </a>
+                    
+                    <span>{{isAdmin() ? 'Admin': ''}}</span>
                 </div>
+
 
                 <!-- Navigation Links -->
                 <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
