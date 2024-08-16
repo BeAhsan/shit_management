@@ -6,8 +6,10 @@
     </x-slot> -->
 
     @if(isAdmin()) 
-    <div class="flex flex-col gap-4">
-        @livewire('map')
+    <div class="flex flex-col gap-4">   
+        @livewire('calendar') 
+        @livewire('staff-list') 
+        @livewire('applicant-list') 
     </div>
     @endif
 
