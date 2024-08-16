@@ -2,7 +2,7 @@
   <h1 class="mb-4">Staff</h1>
         <form wire:submit.prevent="getUsers" class="flex gap-3 w-1/2 mb-6" method="post">
         @csrf 
-                <x-input id="name" class="block mt-1 w-full" placeholder="Search By Name" type="text" name="name"  wire:model="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-input id="name" class="block mt-1 w-full" placeholder="Search By Name / Email / Staff No" type="text" name="name"  wire:model="name" :value="old('name')" required autofocus autocomplete="name" />
             
             <x-button class="ms-4">
                     {{ __('Search') }}
@@ -39,7 +39,7 @@
                 {{$user->name}}
             </td> 
             <td>{{$user->email}} </td>
-            <td>{{$user->active ? 'Active' : 'Pending'}} </td>    
+            <td  class="{{$user->active ? 'text-green-400' : 'text-red-400'}}">{{$user->active ? 'Activated' : 'Deactivated'}} </td>    
             <td class="flex gap-3 align-middle items-center"> 
                
                 <form action="" method="post"> <x-button class=" bg-yellow-400">Show</x-button></form>  
