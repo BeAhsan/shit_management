@@ -16,11 +16,15 @@ class StaffList extends Component
         return view('livewire.staff-list');
     }
 
+    function changeStatus(User $user) : void {
+     User::findOrFail($user->id)->update(['active'=>$user->active ? 0:1]);
+    }
 
- 
+    function deleteUser(User $user) : void {
+        User::findOrFail($user->id)->delete();
+    }
 
     public function getUsers() {
-
 
        if ($this->name) {
        

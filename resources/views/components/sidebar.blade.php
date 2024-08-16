@@ -2,14 +2,12 @@
   
     @if(isAdmin())
     <ul>
-         @for ($i = 0; $i < 3; $i++)
               <li>
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     </li>
-                
-         @endfor  
+         
          </ul>
     @endif
 

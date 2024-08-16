@@ -22,7 +22,10 @@
                 Email
             </th>
             <th>
-                Status
+               Account Status
+            </th>
+            <th>
+                Action
             </th>
         </thead>
         <tbody>
@@ -37,6 +40,16 @@
             </td> 
             <td>{{$user->email}} </td>
             <td>{{$user->active ? 'Active' : 'Pending'}} </td>    
+            <td class="flex gap-3 align-middle items-center"> 
+               
+                <form action="" method="post"> <x-button class=" bg-yellow-400">Show</x-button></form>  
+               <form wire:submit.prevent="deleteUser({{$user}})" method="post"> <x-button class=" bg-red-600">Delete</x-button></form>  
+               @if($user->staff_number != null)
+            <form action="" method="post"> <x-button class=" bg-blue-600" >Shifts</x-button></form> 
+            @endif
+            <form wire:submit.prevent="changeStatus({{$user}})" method="post"> @csrf  <x-button >{{$user->active ? 'Deactivate' : 'Activate'}}</x-button></form>  
+           
+            </td> 
         </tr> 
         @endforeach
         </tbody>
