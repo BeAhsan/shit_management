@@ -7,13 +7,13 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
-class StaffList extends Component
+class ApplicantList extends Component
 {
     public $name = '';
     public $searchedUser = [];
     public function render()
     {
-        return view('livewire.staff-list');
+        return view('livewire.applicant-list');
     }
 
     function changeStatus(User $user) : void {
@@ -34,10 +34,11 @@ class StaffList extends Component
       
     } 
 
-       return User::where('role_id', 2)->where('staff_number','!=',null)
+       return User::where('role_id', 2)->where('staff_number',null)
         ->paginate(
             $perPage = 8, $columns = ['*'], $pageName = 'users'
         
       );
     }
 }
+
