@@ -13,7 +13,7 @@
     <table class="w-full">
         <thead class=" border-b-2">
             <th>
-                Staff #
+                Application #
             </th>
             <th>
                 Name

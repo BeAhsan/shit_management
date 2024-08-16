@@ -11,6 +11,7 @@
         @livewire('calendar') 
 
         @livewire('staff-list') 
+        @livewire('applicant-list') 
     </div>
     @endif
 
