@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\UserDocs;
 use App\Models\Role;
 
 use Illuminate\Support\Facades\Hash;
@@ -21,17 +22,15 @@ class DatabaseSeeder extends Seeder
         $this->roleData();
         $this->createAdmin();
         $this->createDummy();
-        User::factory(100)->withPersonalTeam()->create();
-        // User::factory()->withPersonalTeam()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory(100)->create();
+        UserDocs::factory(10)->create();
     }
 
     function roleData() : void {
         $roles = [  
             ['role' => 'Admin', 'public' => false],
-            ['role' => 'Employee','public' => true]
+            ['role' => 'Employee','public' => true],
+            ['role' => 'Applicant','public' => true],
         ];
  
           collect($roles)->each(function ($role) { Role::create($role); });

@@ -41,6 +41,14 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        Schema::create('user_docs', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('type', 45)->nullable();
+            $table->json('files')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -51,5 +59,6 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('user_docs');
     }
 };
