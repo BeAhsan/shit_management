@@ -13,9 +13,13 @@
     </div>
     @endif
 
-    @if(!isAdmin() && isApplicant())
+    @if(isApplicant())
 
-        @livewire('application-form')  
+         @livewire('application-form')
+
+        @if(!isApplicantHasDocuments())
+          @livewire('applicant-docs-form')
+        @endif
 
     @endif
 

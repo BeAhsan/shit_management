@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class ApplicantForm extends Component
+class ApplicantDocsForm extends Component
 {
     public function render()
     {
-        return view('livewire.applicant-form');
+        return view('livewire.applicant-docs-form');
     }
 }

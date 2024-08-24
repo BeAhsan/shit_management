@@ -39,7 +39,10 @@ class DatabaseSeeder extends Seeder
 
      function createAdmin() : void {
         User::create([
-            'name' => 'Admin',
+            'first_name' => 'Admin',
+            'last_name' => 'Admin',
+            'phone' => '123213213',
+            'address' => 'asdasdsa',
             'email'=> 'admin@gmail.com',
             'email_verified_at' => now(),
             'role_id'=> 1,
@@ -50,7 +53,10 @@ class DatabaseSeeder extends Seeder
 
     function createDummy() : void {
         User::create([
-            'name' => 'Test',
+            'first_name' => 'Test',
+            'last_name' => 'Test',
+            'phone' => '123213213',
+            'address' => 'asdasdsa',
             'email'=> 'test@gmail.com',
             'email_verified_at' => now(),
             'role_id'=> 2,

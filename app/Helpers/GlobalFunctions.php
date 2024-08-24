@@ -31,13 +31,15 @@ if (! function_exists('isApplicant')) {
      };
      return false;
     }
+}
 
-    function isApplicantHasDocuments() {
-        if (User::find(Auth::user()->id)->role_id === 3) {
-           return true;
-        };
-        return false;
-       }
+if (! function_exists('isApplicantHasDocuments')) {
+   function isApplicantHasDocuments() {
+      if (User::find(Auth::user()->id)->Docs !== null) {
+         return true;
+      };
+      return false;
+     }
 }
 
   
