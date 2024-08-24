@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request; 
 use Master;
-
+use Auth;
 class CalendarController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   dd(isApplicant());
+    {   dd(Auth::user()->first_name);
          return view('shifts/calender'); 
     }
 

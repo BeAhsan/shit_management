@@ -28,7 +28,7 @@ class ApplicantList extends Component
 
        if ($this->name) {
        
-       return User::where('name','LIKE','%'.$this->name.'%')
+       return User::where('first_name','LIKE','%'.$this->name.'%')
        ->orWhere('staff_number','LIKE','%'.$this->name.'%')
        ->orWhere('email','LIKE','%'.$this->name.'%')->paginate(8);
       
