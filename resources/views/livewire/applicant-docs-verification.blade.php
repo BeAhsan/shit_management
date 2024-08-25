@@ -2,10 +2,10 @@
 <form method="post" wire:submit.prevent="verified({{getUser($this->userId)->docs}})">
 <x-title>{{ __('Applicant Documents') }}</x-title>
   
-    <div class="grid grid-cols-3 gap-4">
+    <div class="flex flex-row gap-4">
        
         @foreach (getUserDocsFiles($this->userId) as $item)
-             <div class="border">
+             <div class="border w-32">
                 <a href="{{$item['path']}}">
                     <embed width="128px" height="180px" src="{{$item['path']}}" type="">
                     </embed>{{$item['name']}}

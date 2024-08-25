@@ -34,7 +34,7 @@ class StaffList extends Component
       
     } 
 
-       return User::where('role_id', 2)
+       return User::where('role_id', 2)->where('staff_number', '!=','null')
         ->paginate(
             $perPage = 8, $columns = ['*'], $pageName = 'users'
         

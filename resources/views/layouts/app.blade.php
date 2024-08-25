@@ -36,7 +36,7 @@
             <!-- Page Content -->
             <main class="flex gap-2 m-5">
                  <x-sidebar />
-                 <div>
+                 <div class="w-full">
                 {{ $slot }}
                 </div>
             </main>
