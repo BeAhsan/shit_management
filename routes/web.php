@@ -27,8 +27,13 @@ Route::middleware([
 ])->group(function () { 
     
     route::get('/calender', [CalendarController::class, 'index'])->name('get_calender');
+  
     Route::get('/dashboard', function () { 
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/applicant/{id}', function ($id) { 
+        return view('applicant', ['id'=> $id]);
+    })->name('applicant');
 
 });

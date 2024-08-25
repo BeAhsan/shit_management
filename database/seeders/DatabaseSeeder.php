@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
     {
        
 
-        // $this->roleData();
-        // $this->createAdmin();
-        // $this->createDummy();
+        $this->roleData();
+        $this->createAdmin();
+        $this->createDummy();
         // User::factory(100)->create();
         UserDocs::factory(10)->create();
     }
@@ -61,7 +61,8 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'role_id'=> 3,
             'active'=> 1,
-            'password'=>  Hash::make('test123')
+            'password'=>  Hash::make('test123'),
+            'application_number' => 'ap-'.random_int(000000,999999)
         ]);
     }
 

@@ -42,7 +42,7 @@
             <td class="{{$user->active ? 'text-green-400' : 'text-yellow-400'}}" >{{$user->active ? 'Active' : 'Pending'}} </td>    
             <td class="flex gap-3 align-middle items-center"> 
                
-                <form action="" method="post"> <x-button class=" bg-yellow-400">Show</x-button></form>  
+                <form action="{{route('applicant', $user->id)}}" method="get"> <x-button class=" bg-yellow-400">Show</x-button></form>  
                <form wire:submit.prevent="deleteUser({{$user}})" method="post"> <x-button class=" bg-red-600">Delete</x-button></form>  
             <form wire:submit.prevent="changeStatus({{$user}})" method="post"> @csrf  <x-button >{{$user->active ? 'Deactivate' : 'Activate'}}</x-button></form>  
            

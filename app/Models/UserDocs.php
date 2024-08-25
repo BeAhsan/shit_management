@@ -21,6 +21,7 @@ class UserDocs extends Model
         'user_id',
         'type',
         'files',
+        'verified'
     ];
 
     protected $cast = [

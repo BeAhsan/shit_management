@@ -50,6 +50,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->index();
             $table->string('type', 45)->nullable();
             $table->json('files')->nullable();
+            $table->boolean('verified')->default(0);
             $table->timestamps();
         });
     }

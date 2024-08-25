@@ -7,8 +7,8 @@
  
 
 if (! function_exists('getUser')) {
-   function getUser() : User {
-      return User::find(Auth::user()->id);
+   function getUser(int $id = 0) : User {
+      return User::find($id !== 0 ? $id : Auth::user()->id);
    }
 }
 
@@ -42,11 +42,11 @@ if (! function_exists('isApplicant')) {
 }
 
 if (! function_exists('isApplicantHasDocuments')) {
+   
    function isApplicantHasDocuments() : bool {
     
-      $userDocs = json_decode(getUserDocs()->files);
       
-      if (getUser()->Docs !== null || count($userDocs) < 3) {
+      if (getUser()->Docs !== null) {
          return true;
       }
     
@@ -56,18 +56,32 @@ if (! function_exists('isApplicantHasDocuments')) {
 }
 
 if (! function_exists('getUserDocs')) {
-   function getUserDocs() : UserDocs {
+   function getUserDocs() : null|UserDocs {
       return getUser()->docs;
    }
 }
 
-// if (! function_exists('getUserDocFilesCount')) {
-//    function getUserDocFilesCount() {
-//     $docs =  trim(getUserDocs()->files, "[]");
-//     $docs2[] = $docs;
-//      return $docs2;
-//    }
-// }
+if (! function_exists('getUserDocsFiles')) {
+   function getUserDocsFiles($userId = 0) : array {
+      $files = [];
+      foreach(json_decode(getUser($userId)->docs->files) as $file){
+         $files[] = ['name'=>$file->name,'path'=> Storage::disk('local')->url($file->path)];
+      }
+      return $files;
+   }
+}
+
+if (! function_exists('applicatnDocsPath')) {
+   function applicatnDocsPath() : string {
+      return  'public/docs/'. getUser()->application_number;
+   }
+}
+
+if (! function_exists('getUserDocFilesCount')) {
+   function getUserDocFilesCount() {
+     return count(getUserDocsFiles());
+   }
+}
 
 
   
