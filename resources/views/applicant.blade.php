@@ -1,6 +1,11 @@
 <x-app-layout>
 <x-module-section>
     <x-user-info-section :user="getUser($id)"/>
-    @livewire('applicant-docs-verification', [ 'userId'=> $id ])
+
+    @if (isApplicantHasDocuments($id))
+       @livewire('applicant-docs-verification', [ 'userId'=> $id ])
+       @else
+       <span class="text-xl my-5">Documents <b>required!</b></span>
+    @endif
 </x-module-section>
 </x-app-layout>

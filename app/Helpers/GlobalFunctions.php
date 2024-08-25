@@ -43,9 +43,9 @@ if (! function_exists('isApplicant')) {
 
 if (! function_exists('isApplicantHasDocuments')) {
    
-   function isApplicantHasDocuments() : bool {
+   function isApplicantHasDocuments(int $userId = 0) : bool {
 
-      if (getUser()->Docs !== null) {
+      if (getUser($userId)->docs !== null) {
          return true;
       }
     
@@ -66,6 +66,10 @@ if (! function_exists('getUserDocsFiles')) {
       
       $files = [];
     
+      if (!isApplicantHasDocuments($userId) ) {
+          return $files;
+      }
+
       foreach(json_decode(getUser($userId)->docs->files) as $file){
         
          $files[] = [
