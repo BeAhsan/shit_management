@@ -1,9 +1,15 @@
 <div class="mt-4">
 
-    <div class="flex justify-between">
-        <h1>Details</h1>
+   <div class="text-3xl my-10">
+      <span>{{getUser()->staff_number ? 'Staff Number :' : 'Application Number :'}}</span>
+      <span>{{getUser()->staff_number ? getUser()->staff_number :  getUser()->application_number}}</span>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <x-title>{{ __('Details') }}</x-title>
         <a  href="{{ route('profile.show') }}" >edit</a>
     </div>
+
     
     <div>
         <span>First Name : </span>

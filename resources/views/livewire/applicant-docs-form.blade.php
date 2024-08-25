@@ -1,25 +1,27 @@
-<x-module-section>
-<div>
-    <h1>{{ __('Required Docs') }}</h1>
+<div class=" my-10">
+    <x-title>{{ __('Required Docs') }}</x-title>
 
-    <form wire:submit.prevent="uploadDocs" method="post"enctype="multipart/form-data">
+    <form wire:submit.prevent="uploadDocs" class="w-full flex flex-row gap-4" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <x-label for="file_1" value="{{ __('File 1') }}" />
-            <x-input id="file_1" class="block mt-1 w-full" type="file" name="file_1" :value="old('file_1')" required autofocus autocomplete="file_1" />
+            <x-input id="file_1" class="block mt-1 w-full" type="file" wire:model.live="file_1"
+            x-ref="file_1" required autofocus />
         </div>
-        {{-- <div>
+        <div>
             <x-label for="file_2" value="{{ __('File 2') }}" />
-            <x-input id="file_2" class="block mt-1 w-full" type="file" name="file_2" :value="old('file_2')" required autofocus autocomplete="file_2" />
+            <x-input id="file_2" class="block mt-1 w-full" type="file" wire:model.live="file_2"
+            x-ref="file_2" required autofocus />
         </div>
         <div>
             <x-label for="file_3" value="{{ __('File 3') }}" />
-            <x-input id="file_3" class="block mt-1 w-full" type="file" name="file_3" :value="old('file_3')" required autofocus autocomplete="file_3" />
-        </div> --}}
+            <x-input id="file_3" class="block mt-1 w-full" type="file" wire:model.live="file_3"
+            x-ref="file_3" required autofocus />
+        </div>
 
         <x-button class="ms-4">
             {{ __('Submit') }}
         </x-button>
     </form>
 </div>
-</x-module-section>
+
