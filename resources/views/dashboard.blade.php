@@ -17,10 +17,6 @@
 
          @livewire('application-form')
 
-        @if(!isApplicantHasDocuments())
-          @livewire('applicant-docs-form')
-        @endif
-
     @endif
 
     

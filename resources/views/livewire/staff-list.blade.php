@@ -34,9 +34,9 @@
             <td>{{$user->staff_number == null ? '-': $user->staff_number}}</td> 
             <td class="flex align-middle items-center">
                 <div class="shrink-0 m-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" />
+                        <img class="h-10 w-10 rounded-full object-cover" src="{{ $user->profile_photo_url }}" alt="{{ $user->first_name }}" />
                     </div>
-                {{$user->name}}
+                {{$user->first_name}}
             </td> 
             <td>{{$user->email}} </td>
             <td  class="{{$user->active ? 'text-green-400' : 'text-red-400'}}">{{$user->active ? 'Activated' : 'Deactivated'}} </td>    

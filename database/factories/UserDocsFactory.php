@@ -27,7 +27,7 @@ class UserDocsFactory extends Factory
         return [
             'type' => $this->faker->unique()->company(),
             'user_id' => User::factory(),
-            'files' => json_encode($data),
+            'files' => \json_encode($data),
         ];
     }
 }

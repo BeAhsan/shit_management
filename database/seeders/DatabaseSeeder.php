@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
     {
        
 
-        $this->roleData();
-        $this->createAdmin();
-        $this->createDummy();
-        User::factory(100)->create();
+        // $this->roleData();
+        // $this->createAdmin();
+        // $this->createDummy();
+        // User::factory(100)->create();
         UserDocs::factory(10)->create();
     }
 
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             'address' => 'asdasdsa',
             'email'=> 'test@gmail.com',
             'email_verified_at' => now(),
-            'role_id'=> 2,
+            'role_id'=> 3,
             'active'=> 1,
             'password'=>  Hash::make('test123')
         ]);

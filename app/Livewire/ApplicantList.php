@@ -34,7 +34,7 @@ class ApplicantList extends Component
       
     } 
 
-       return User::where('role_id', 2)->where('staff_number',null)
+       return User::where('role_id', 3)
         ->paginate(
             $perPage = 8, $columns = ['*'], $pageName = 'users'
         

@@ -22,4 +22,8 @@ class UserDocs extends Model
         'type',
         'files',
     ];
+
+    protected $cast = [
+        'files' => 'array'
+    ];
 }
