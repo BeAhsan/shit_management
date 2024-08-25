@@ -4,7 +4,7 @@
  use App\Models\User;
  use App\Models\UserDocs;
 
- 
+   $userId = 0;
 
 if (! function_exists('getUser')) {
    function getUser(int $id = 0) : User {
@@ -44,8 +44,7 @@ if (! function_exists('isApplicant')) {
 if (! function_exists('isApplicantHasDocuments')) {
    
    function isApplicantHasDocuments() : bool {
-    
-      
+
       if (getUser()->Docs !== null) {
          return true;
       }
@@ -62,11 +61,20 @@ if (! function_exists('getUserDocs')) {
 }
 
 if (! function_exists('getUserDocsFiles')) {
-   function getUserDocsFiles($userId = 0) : array {
+   
+   function getUserDocsFiles(int $userId = 0) : array {
+      
       $files = [];
+    
       foreach(json_decode(getUser($userId)->docs->files) as $file){
-         $files[] = ['name'=>$file->name,'path'=> Storage::disk('local')->url($file->path)];
+        
+         $files[] = [
+            'name'=>$file->name,
+            'path'=> Storage::disk('local')->url($file->path)
+         ];
+     
       }
+     
       return $files;
    }
 }

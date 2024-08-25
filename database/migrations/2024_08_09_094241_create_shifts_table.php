@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('shifts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->index();
             $table->string('title');
-            $table->date('start');
+            $table->string('address');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
         });
     }
