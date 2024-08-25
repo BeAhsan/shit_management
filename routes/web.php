@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\StaffController;
 
 use App\Livewire\Calendar;
 use App\Livewire\Map;
@@ -17,7 +18,6 @@ Route::get('/', function () {
 
 Livewire::component('calendar', Calendar::class);
 Livewire::component('map', Map::class);
-Livewire::component('create-staff', CreateStaff::class);
 Livewire::component('staff-list', StaffList::class);
 
 Route::middleware([
@@ -27,6 +27,8 @@ Route::middleware([
 ])->group(function () { 
     
     route::get('/calender', [CalendarController::class, 'index'])->name('get_calender');
+
+    route::post('/applicationProcess/{user}', [StaffController::class, 'applicationProcess'])->name('applicationProcess');
   
     Route::get('/dashboard', function () { 
         return view('dashboard');
@@ -35,5 +37,9 @@ Route::middleware([
     Route::get('/applicant/{id}', function ($id) { 
         return view('applicant', ['id'=> $id]);
     })->name('applicant');
+
+    Route::get('/staff/{id}', function ($id) { 
+        return view('staff', ['id'=> $id]);
+    })->name('staff');
 
 });

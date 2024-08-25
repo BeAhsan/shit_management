@@ -12,11 +12,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-           // Get the AliasLoader instance
-         //  $loader = AliasLoader::getInstance();
-           // Add your aliases
-          // $loader->alias('Master', \App\MasterClass::class);
-
          // helpers
          require_once base_path().'/app/Helpers/GlobalFunctions.php';
     }

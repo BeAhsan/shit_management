@@ -10,9 +10,12 @@
     @endif
 
     @if (isApplicantDocsVerified($id))
+    <form action="{{route('applicationProcess', ['user' => getUser($id)])}}" method="post">
+        @csrf
     <x-button class="ms-4 bg-green-500">
         {{ __('Procced Application') }}
     </x-button>
+    </form>
     @endif
 
 </x-module-section>

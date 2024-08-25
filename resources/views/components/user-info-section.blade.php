@@ -9,7 +9,7 @@
 
     <div class="flex justify-between items-center">
       <x-title>{{ __('Details') }}</x-title>
-        <a  href="{{ route('profile.show') }}" >edit</a>
+        <a  href="{{ isAdmin() ? '#' : route('profile.show') }}" >edit</a>
     </div>
 
     

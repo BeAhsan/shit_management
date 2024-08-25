@@ -16,9 +16,11 @@
     </div>
 
     @if (!isApplicantDocsVerified($this->userId))
+  
         <x-button class="ms-4">
             {{ __('Verify') }}
         </x-button>
+   
     @endif
  
 </form>  
