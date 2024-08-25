@@ -31,30 +31,36 @@ class ApplicantDocsForm extends Component
             'file_3' => 'required',
         ]);
 
+try {
+    $files = [
+        [
+            'name'=>'file_1',
+            'path' => $this->file_1->store(applicatnDocsPath())
 
-        $files = [
-            [
-                'name'=>'file_1',
-                'path' => $this->file_1->store(applicatnDocsPath())
+        ],
+        [
+            'name'=>'file_2',
+            'path' => $this->file_2->store(applicatnDocsPath())
 
-            ],
-            [
-                'name'=>'file_2',
-                'path' => $this->file_2->store(applicatnDocsPath())
+        ],
+        [
+            'name'=>'file_3',
+            'path' => $this->file_3->store(applicatnDocsPath())
 
-            ],
-            [
-                'name'=>'file_3',
-                'path' => $this->file_3->store(applicatnDocsPath())
+        ],
+    ];
 
-            ],
-        ];
+    UserDocs::create([
+        'type' => 'application_docs',
+        'user_id' => getUser()->id,
+        'files' => \json_encode($files),
+    ]);
 
-        UserDocs::create([
-            'type' => 'application_docs',
-            'user_id' => getUser()->id,
-            'files' => \json_encode($files),
-        ]);
+    return back();
+} catch (\Throwable $th) {
+ Log::error("message", $th->error);
+}
+
       
     }
 

@@ -95,6 +95,17 @@ if (! function_exists('getUserDocFilesCount')) {
    }
 }
 
+if (! function_exists('isApplicantDocsVerified')) {
+   function isApplicantDocsVerified(int $userId): bool {
+    
+      if (getUser($userId)->docs->verified) {
+       return true;
+     }
+
+     return false;
+   }
+}
+
 
   
 
