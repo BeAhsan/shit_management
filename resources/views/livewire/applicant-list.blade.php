@@ -1,8 +1,8 @@
 <x-module-section>
   <h1 class="mb-4">Applicants</h1>
-        <form wire:submit.prevent="getUsers" class="flex gap-3 w-1/2 mb-6" method="post">
+        <form wire:submit="getUsers" class="flex gap-3 w-1/2 mb-6" method="post">
         @csrf 
-                <x-input id="name" class="block mt-1 w-full" placeholder="Search By Name / Email / Application No" type="text" name="name"  wire:model="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-input id="name" class="block mt-1 w-full" placeholder="Search By Name / Email / Application No" type="text" name="name"  wire:model.live="name" :value="old('name')" required autofocus autocomplete="name" />
             
             <x-button class="ms-4">
                     {{ __('Search') }}
@@ -43,8 +43,8 @@
             <td class="flex gap-3 align-middle items-center"> 
                
                 <form action="{{route('applicant', $user->id)}}" method="get"> <x-button class=" bg-yellow-400">Show</x-button></form>  
-               <form wire:submit.prevent="deleteUser({{$user}})" method="post"> <x-button class=" bg-red-600">Delete</x-button></form>  
-            <form wire:submit.prevent="changeStatus({{$user}})" method="post"> @csrf  <x-button >{{$user->active ? 'Deactivate' : 'Activate'}}</x-button></form>  
+               <form wire:submit="deleteUser({{$user}})" method="post"> <x-button class=" bg-red-600">Delete</x-button></form>  
+            <form wire:submit="changeStatus({{$user}})" method="post"> @csrf  <x-button >{{$user->active ? 'Deactivate' : 'Activate'}}</x-button></form>  
            
             </td> 
         </tr> 

@@ -1,7 +1,9 @@
 
 <x-module-section>
   <div id='calendar-container '  wire:ignore>
-    <div id='calendar' class=" calendar"></div>
+    <div class=" mb-5">   <a href="{{route('go_to_shifts_manager')}}" class=" bg-blue-300 p-2 rounded-md hover:bg-blue-600 text-white mb-2 ">Manage Shifts</a>
+    </div>
+  <div id='calendar' class=" calendar"></div>
   </div> 
 </x-module-section>
 

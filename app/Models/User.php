@@ -11,6 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\UserDocs;
+use App\Models\Shift;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 

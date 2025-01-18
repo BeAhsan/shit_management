@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\UserDocs;
 use App\Models\Role;
+use App\Models\Shift;
+
 
 use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,11 +21,13 @@ class DatabaseSeeder extends Seeder
     {
        
 
-        $this->roleData();
-        $this->createAdmin();
-        $this->createDummy();
+        // $this->roleData();
+        // $this->createAdmin();
+        // $this->createDummy();
         // User::factory(100)->create();
-        UserDocs::factory(10)->create();
+       // UserDocs::factory(10)->create();
+       Shift::factory(10)->create();
+
     }
 
     function roleData() : void {

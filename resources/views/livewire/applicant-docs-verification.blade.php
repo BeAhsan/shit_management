@@ -1,5 +1,5 @@
 
-<form method="post" wire:submit.prevent="verified({{getUser($this->userId)->docs}})">
+<form method="post" wire:submit="verified({{getUser($this->userId)->docs}})">
 <x-title>{{ __('Applicant Documents') }}</x-title>
   
     <div class="flex flex-row gap-4">

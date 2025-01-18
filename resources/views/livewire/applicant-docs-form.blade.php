@@ -1,7 +1,7 @@
 <div class=" my-10">
     <x-title>{{ __('Required Docs') }}</x-title>
 
-    <form wire:submit.prevent="uploadDocs" class="w-full flex flex-row gap-4" method="post" enctype="multipart/form-data">
+    <form wire:submit="uploadDocs" class="w-full flex flex-row gap-4" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <x-label for="file_1" value="{{ __('File 1') }}" />

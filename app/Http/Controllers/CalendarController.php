@@ -10,8 +10,7 @@ class CalendarController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {   dd(Auth::user()->first_name);
+    public function index() {
          return view('shifts/calender'); 
     }
 
