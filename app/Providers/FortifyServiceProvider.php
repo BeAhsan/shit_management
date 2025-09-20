@@ -31,13 +31,15 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        config(['fortify.home' => getDefaultModule()]);
         Fortify::authenticateUsing(function (Request $request) {
-            
+
             $user = User::where('email', $request->email)->first();
-        
-                if (Hash::check($request->password, $user->password) && $user->active === 1) {
-                    return $user;
-                } 
+
+            if (Hash::check($request->password, $user->password) && $user->active === 1) {
+                return $user;
+            }
 
         });
 
@@ -47,7 +49,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });

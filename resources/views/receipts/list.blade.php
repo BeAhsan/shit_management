@@ -15,8 +15,8 @@
                     Email
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subtotal</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tax 1</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Totak</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tax</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
             </tr>
             </thead>
@@ -30,9 +30,11 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $receipt->tax }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $receipt->total }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{--                        <a href="{{ route('receipt.print', $receipt->id) }}">PDF</a>--}}
-                        <x-table-ation-link type="show" :linl="{{ route('receipt.print', $receipt->id) }}">PDF
-                        </x-table-ation-link>
+                        <x-table-actions
+                            :modelId="$receipt->id"
+                            :showRoute="'receipt.print'"
+                            :showText="'PDF'"
+                        />
                     </td>
                 </tr>
             @endforeach

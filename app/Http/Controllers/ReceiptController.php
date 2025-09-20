@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Receipt;
 use Illuminate\Http\Request;
 use PDF;
-use src\app\Http\Controllers\Controller;
 
-class ReceiptController extends Controller
+class ReceiptController extends ReceiptsBaseController
 {
-    public function index() {
-
-        $receipts = Receipt::all();
-        return view('receipts.list',compact('receipts'));
+    public function index()
+    {
+        $receiptsModules = ReceiptsBaseController::RECEIPTS_MODULES;
+        return view('receipts.dashboard', compact('receiptsModules'));
     }
 
-    public function create()
+    public function list()
     {
-        return view('receipts.create');
+        $receipts = Receipt::all();
+        return view('receipts.list', compact('receipts'));
     }
 
     public function store(Request $request)
@@ -54,6 +54,11 @@ class ReceiptController extends Controller
         ]);
 
         return redirect()->route('receipt.show', $receipt->id);
+    }
+
+    public function create()
+    {
+        return view('receipts.create');
     }
 
     public function show($id)
