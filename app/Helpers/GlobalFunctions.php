@@ -17,11 +17,7 @@ if (!function_exists('getUser')) {
 if (!function_exists('isAdmin')) {
     function isAdmin(): bool
     {
-
-        if (getUser()->role_id === 1) {
-            return true;
-        }
-        return false;
+        return getUser()->role_id === 1;
     }
 }
 
