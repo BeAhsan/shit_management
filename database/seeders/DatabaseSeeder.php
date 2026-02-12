@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 //
-//        $this->roleData();
-//        $this->createAdmin();
-//        $this->createDummy();
+        $this->roleData();
+        $this->createAdmin();
+        $this->createDummy();
         $this->createModules();
-//        User::factory(100)->create();
-//        UserDocs::factory(10)->create();
-//        Shift::factory(10)->create();
+        User::factory(100)->create();
+        UserDocs::factory(10)->create();
+        Shift::factory(10)->create();
 
     }
 
@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             ]
         ];
         collect($modules)->each(function ($module) {
-            Modules::create($module);
+            Modules::updateOrCreate(['module_prefix' => $module['module_prefix']], $module);
         });
     }
 
@@ -60,40 +60,44 @@ class DatabaseSeeder extends Seeder
         ];
 
         collect($roles)->each(function ($role) {
-            Role::create($role);
+            Role::updateOrCreate(['role' => $role['role']], $role);
         });
 
     }
 
     function createAdmin(): void
     {
-        User::create([
-            'first_name' => 'Admin',
-            'last_name' => 'Admin',
-            'phone' => '123213213',
-            'address' => 'asdasdsa',
-            'email' => 'admin@gmail.com',
-            'email_verified_at' => now(),
-            'role_id' => 1,
-            'active' => 1,
-            'password' => Hash::make('admin123')
-        ]);
+        User::updateOrCreate(
+            ['email' => 'admin@gmail.com'],
+            [
+                'first_name' => 'Admin',
+                'last_name' => 'Admin',
+                'phone' => '123213213',
+                'address' => 'asdasdsa',
+                'email_verified_at' => now(),
+                'role_id' => 1,
+                'active' => 1,
+                'password' => Hash::make('admin123')
+            ]
+        );
     }
 
     function createDummy(): void
     {
-        User::create([
-            'first_name' => 'Test',
-            'last_name' => 'Test',
-            'phone' => '123213213',
-            'address' => 'asdasdsa',
-            'email' => 'test@gmail.com',
-            'email_verified_at' => now(),
-            'role_id' => 3,
-            'active' => 1,
-            'password' => Hash::make('test123'),
-            'application_number' => 'ap-' . random_int(000000, 999999)
-        ]);
+        User::updateOrCreate(
+            ['email' => 'test@gmail.com'],
+            [
+                'first_name' => 'Test',
+                'last_name' => 'Test',
+                'phone' => '123213213',
+                'address' => 'asdasdsa',
+                'email_verified_at' => now(),
+                'role_id' => 3,
+                'active' => 1,
+                'password' => Hash::make('test123'),
+                'application_number' => random_int(100000, 999999)
+            ]
+        );
     }
 
 

@@ -31,16 +31,26 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Avoid hitting the database during CLI operations (e.g., composer scripts / package:discover)
+        $home = '/';
+        if (! $this->app->runningInConsole()) {
+            try {
+                $home = getDefaultModule();
+            } catch (\Throwable $e) {
+                // Fallback to root if database/config is not ready
+                $home = '/';
+            }
+        }
+        config(['fortify.home' => $home]);
 
-        config(['fortify.home' => getDefaultModule()]);
         Fortify::authenticateUsing(function (Request $request) {
-
             $user = User::where('email', $request->email)->first();
 
-            if (Hash::check($request->password, $user->password) && $user->active === 1) {
+            if ($user && Hash::check($request->password, $user->password) && $user->active === 1) {
                 return $user;
             }
 
+            return null;
         });
 
         Fortify::createUsersUsing(CreateNewUser::class);

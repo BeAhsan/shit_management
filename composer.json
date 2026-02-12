@@ -5,9 +5,9 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.5",
         "barryvdh/laravel-dompdf": "^3.1",
-        "laravel/framework": "^11.9",
+        "laravel/framework": "^12.40",
         "laravel/jetstream": "^5.1",
         "laravel/sanctum": "^4.0",
         "laravel/scout": "^10.11",

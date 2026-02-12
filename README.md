@@ -1,5 +1,5 @@
 <!-- create migration -->
-php .\artisan migrate
+docker exec shit_management-app-1 php artisan migrate
 
 <!-- to create admin -->
-php artisan db:seed --class=DatabaseSeeder
+docker exec shit_management-app-1 php artisan db:seed --class=DatabaseSeeder

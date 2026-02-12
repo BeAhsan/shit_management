@@ -1,5 +1,11 @@
 <?php
 
+if (PHP_VERSION_ID >= 80500) {
+    set_error_handler(function ($errno, $errstr) {
+        return (bool) ($errno === E_DEPRECATED && str_contains($errstr, 'PDO::MYSQL_ATTR_SSL_CA'));
+    }, E_DEPRECATED);
+}
+
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
